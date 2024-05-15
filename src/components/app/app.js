@@ -12,9 +12,9 @@ class App extends Component {
         super(props)
         this.state = {
             data: [
-                { name: 'Empire of osman', viewers: 965, favourite: false, id: 1 },
-                { name: 'Temur', viewers: 1965, favourite: false, id: 2 },
-                { name: 'osman', viewers: 565, favourite: true, id: 3 }
+                { name: 'Empire of osman', viewers: 965, favorite: false, like: false, id: 1 },
+                { name: 'Temur', viewers: 1965, favorite: false, like: false, id: 2 },
+                { name: 'osman', viewers: 565, favorite: true, like: false, id: 3 }
             ],
         }
     }
@@ -26,8 +26,16 @@ class App extends Component {
     }
 
     addForm = item => {
+        const newItem = { name: item.name, viewers: item.viewers, id: uuidv4(), favorite: false, like: false }
         this.setState(({ data }) =>
-            ({ data: [...data, item] }))
+            ({ data: [...data, newItem] }))
+    }
+
+    onToggleFavorite = id => {
+        console.log(`favorite ${id}`);
+    }
+    onToggleLike = id => {
+        console.log(`like ${id}`);
     }
     render() {
         const { data } = this.state
@@ -39,7 +47,7 @@ class App extends Component {
                         <SearchPanel />
                         <AppFilter />
                     </div>
-                    <MovieList data={data} onDelete={this.onDelete} />
+                    <MovieList onToggleFavorite={this.onToggleFavorite} onToggleLike= {this.onToggleLike} data={data} onDelete={this.onDelete} />
                     <MoviesAddForm addForm={this.addForm} />
                 </div>
             </div>

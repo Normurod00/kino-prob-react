@@ -19,19 +19,21 @@ class MovieListItem extends Component {
       like: !like
     }))
   }
+
+
   render() {
-    const { name, viewers, onDelete } = this.props
+    const { name, viewers, onDelete, onToggleFavorite, onToggleLike } = this.props
     const { favourite, like } = this.state
     return (
       <li
         className={`list-group-item d-flex justify-content-between 
         ${favourite && "favourite"} ${like && 'like'}`
         }>
-        <span onClick={this.onLike} className="list-group-item-label"  >{name} </span>
+        <span onClick={onToggleLike} className="list-group-item-label"  >{name} </span>
         <input
           className="list-group-item-input" type="number" defaultValue={viewers}></input>
         <div className="d-flex justify-content-center align-items-center">
-          <button type="button" className="btn-cookie btn-sm" onClick={this.onFavourite} >
+          <button type="button" className="btn-cookie btn-sm" onClick={onToggleFavorite} >
             <i className="fas fa-cookie"></i>
           </button>
           <button type="button" className="btn-trash btn-sm" onClick={onDelete}>
