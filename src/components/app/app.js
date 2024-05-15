@@ -21,7 +21,7 @@ class App extends Component {
 
     onDelete = id => {
         this.setState(({ data }) => ({
-            data: data.filter(c => c.id !== id), //imutable
+            data: data.filter(c => c.id !== id),
         }))
     }
 
@@ -32,11 +32,17 @@ class App extends Component {
     }
 
     onToggleFavorite = id => {
-        console.log(`favorite ${id}`);
+        this.setState(({ data }) => ({
+            data: data.map(item => item.id === id ? { ...item, favorite: !item.favorite } : item)
+        }));
     }
+
     onToggleLike = id => {
-        console.log(`like ${id}`);
+        this.setState(({ data }) => ({
+            data: data.map(item => item.id === id ? { ...item, like: !item.like } : item)
+        }));
     }
+
     render() {
         const { data } = this.state
         return (
@@ -47,7 +53,7 @@ class App extends Component {
                         <SearchPanel />
                         <AppFilter />
                     </div>
-                    <MovieList onToggleFavorite={this.onToggleFavorite} onToggleLike= {this.onToggleLike} data={data} onDelete={this.onDelete} />
+                    <MovieList onToggleFavorite={this.onToggleFavorite} onToggleLike={this.onToggleLike} data={data} onDelete={this.onDelete} />
                     <MoviesAddForm addForm={this.addForm} />
                 </div>
             </div>

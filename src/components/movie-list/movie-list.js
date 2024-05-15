@@ -10,10 +10,11 @@ const MovieList = ({ data, onDelete, onToggleFavorite, onToggleLike }) => {
                     key={item.id}
                     name={item.name}
                     viewers={item.viewers}
-                    favourite={item.favourite}
+                    favorite={item.favorite}
+                    like={item.like}
                     onDelete={() => onDelete(item.id)}
-                    onToggleFavorite= {()=> onToggleFavorite(item.id)}
-                    onToggleLike={()=> onToggleLike(item.id)}
+                    onToggleFavorite={() => onToggleFavorite(item.id)}
+                    onToggleLike={() => onToggleLike(item.id)}
                 />
             ))}
         </ul>

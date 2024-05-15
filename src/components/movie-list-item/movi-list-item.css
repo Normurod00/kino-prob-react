@@ -55,11 +55,11 @@
   transform: translateX(0px);
 }
 
-.list-group-item.favourite .list-group-item-label,
-.list-group-item.favourite .list-group-item-input {
+.list-group-item.favorite .list-group-item-label,
+.list-group-item.favorite .list-group-item-input {
   color: #e89f3e;
 }
 
-.list-group-item.favourite .btnstart {
+.list-group-item.favorite .btnstart {
   color: #aeaeae;
 }
