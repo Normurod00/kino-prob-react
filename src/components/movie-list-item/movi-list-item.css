@@ -1,4 +1,6 @@
 .list-group-item {
+  display: flex; /* Добавляет Flexbox */
+  align-items: center; /* Выравнивает элементы по центру по вертикали */
   padding: 15px 20px;
   border-bottom: 1px solid #3d5a80;
 }
@@ -22,10 +24,13 @@
 }
 
 .list-group-item button {
-  width: 35px;
+  width: 153px;
   height: 35px;
   margin: 3px;
   font-size: 17px;
+  display: flex;
+  justify-content: center; /* Выравнивает текст в кнопке по центру */
+  align-items: center; /* Выравнивает текст в кнопке по вертикали */
   border: none;
   cursor: pointer;
 }

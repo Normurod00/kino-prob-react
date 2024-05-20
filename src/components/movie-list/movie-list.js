@@ -2,7 +2,7 @@ import React from "react";
 import "./movie-list.css";
 import MovieListItem from "../movie-list-item/movi-list-item";
 
-const MovieList = ({ data, onDelete, onToggleFavorite, onToggleLike }) => {
+const MovieList = ({ data, onDelete, onToggleProp }) => {
     return (
         <ul className="movie-list">
             {data.map((item) => (
@@ -13,8 +13,7 @@ const MovieList = ({ data, onDelete, onToggleFavorite, onToggleLike }) => {
                     favorite={item.favorite}
                     like={item.like}
                     onDelete={() => onDelete(item.id)}
-                    onToggleFavorite={() => onToggleFavorite(item.id)}
-                    onToggleLike={() => onToggleLike(item.id)}
+                    onToggleProp={(e) => onToggleProp(item.id, e.currentTarget.getAttribute('data-toggle'))}
                 />
             ))}
         </ul>
